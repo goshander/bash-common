@@ -42,4 +42,4 @@ export $(cat .env | grep AWS_SECRET_ACCESS_KEY)
 export $(cat .env | grep AWS_DEFAULT_REGION)
 
 aws --endpoint-url="${S3_ENDPOINT}" s3 sync --delete "${BACKUP_FOLDER}" "s3://${S3_BUCKET}/"
-cd "${CURRENT_FOLDER}" && rm -rf "${BACKUP_FOLDER}/*.zip"
+cd "${CURRENT_FOLDER}/${BACKUP_FOLDER}" && rm -rf *.zip
