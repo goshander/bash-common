@@ -1,6 +1,8 @@
 #!/bin/bash
 
 MIJIA_MAC="..."
+# sudo apt-get install bluez-tools
+# bt-device -l
 
 while true; do
   bt=$(timeout 25 gatttool -b ${MIJIA_MAC} --char-write-req --handle=0x0038 --value=0100 --listen | grep "Notification handle" --m 1)
