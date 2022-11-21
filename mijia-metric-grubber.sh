@@ -2,7 +2,8 @@
 
 MIJIA_MAC="..."
 # sudo apt-get install bluez-tools
-# hcitool -i hci0 scan
+# bluetoothctl scan le | grep ${MIJIA_DEVICE}
+# ? MIJIA_DEVICE can be found on back side of the device
 
 while true; do
   bt=$(timeout 25 gatttool -b ${MIJIA_MAC} --char-write-req --handle=0x0038 --value=0100 --listen | grep "Notification handle" --m 1)
